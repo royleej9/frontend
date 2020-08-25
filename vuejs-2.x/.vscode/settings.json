@@ -1,0 +1,7 @@
+{
+  //  파일 라인처리 csrf -> lf
+  "files.eol": "\n",
+
+  // tab 간격 4 -> 2
+  "editor.tabSize": 2
+}

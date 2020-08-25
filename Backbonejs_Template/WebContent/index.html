@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Backbonejs Template</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="js/app/css/login.css">	
+<!-- 	<link rel="stylesheet" type="text/css" href="dist/js/app/css/login.css"> -->
+</head>
+<body>
+
+
+<!-- 	<script src="js/libs/require.js" data-main="js/app/loginView"></script>	 -->
+<!-- 	<script src="js/libs/require.js" data-main="js/app/loginModalView"></script> -->
+
+	<script src="js/libs/require.js"></script>
+	<script type="text/javascript">
+		// loginView 와 loginModalView를 페이지 하나에서 동시에 사용할때 
+  		require({baseUrl: './js/app'},['loginView', 'loginModalView']);  		
+	</script>
+
+
+<!-- 	<script src="js/libs/require.js" data-main="dist/js/app/loginView"></script> -->
+<!-- 	<script src="js/libs/require.js" data-main="dist/js/app/loginModalView"></script> -->
+<!-- 	<script src="js/libs/require.js"></script> -->
+	<script type="text/javascript">
+	// loginView 와 loginModalView를 페이지 하나에서 동시에 사용할때 
+//  		require({baseUrl: './dist/js/app'},['loginView', 'loginModalView']);
+	</script>
+
+<div id="loginView" ></div>
+<div id="loginModalView" ></div>
+ 	
+</body>
+</html>

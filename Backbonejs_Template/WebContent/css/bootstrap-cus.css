@@ -1,0 +1,79 @@
+/**
+ * Bootstrap Button Generator ()http://blog.koalite.com/bbg/
+ * 을 이용해서 추가로 만든 버튼
+ **/ 
+.btn-gray {
+	color: #FFFFFF;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #A1A1A1;
+	*background-color: #A1A1A1;
+	background-image: -moz-linear-gradient(top, #868B91, #A1A1A1);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#868B91), to(#A1A1A1));
+	background-image: -webkit-linear-gradient(top, #868B91, #A1A1A1);
+	background-image: -o-linear-gradient(top, #868B91, #A1A1A1);
+	background-image: linear-gradient(to bottom, #868B91, #A1A1A1);
+	background-repeat: repeat-x;
+	border-color: #A1A1A1;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#868B91', endColorstr='#A1A1A1', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-gray:hover,
+.btn-gray:active,
+.btn-gray.active,
+.btn-gray.disabled,
+.btn-gray[disabled] {
+	color: #FFFFFF;
+	background-color: #A1A1A1;
+	*background-color: #003bb3;
+}
+
+.btn-memo {
+	color: #000000;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	background-color: #F2DB30;
+	*background-color: #F2DB30;
+	background-image: -moz-linear-gradient(top, #E0F218, #F2DB30);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E0F218), to(#F2DB30));
+	background-image: -webkit-linear-gradient(top, #E0F218, #F2DB30);
+	background-image: -o-linear-gradient(top, #E0F218, #F2DB30);
+	background-image: linear-gradient(to bottom, #E0F218, #F2DB30);
+	background-repeat: repeat-x;
+	border-color: #F2DB30;
+	border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#E0F218', endColorstr='#F2DB30', GradientType=0);
+	filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+}
+.btn-memo:hover,
+.btn-memo:active,
+.btn-memo.active,
+.btn-memo.disabled,
+.btn-memo[disabled] {
+	color: #000000;
+	background-color: #F2DB30;
+	*background-color: #003bb3;
+}
+
+
+.input {
+  display: block;
+}
+.input span {
+  position: absolute;
+  padding: 5px;
+  margin-left: 3px;
+  color: #999;
+  z-index: 1;
+  cursor: text;
+  pointer-events: none;
+}
+.input input, .input textarea, .input select {
+  z-index: 0;
+  padding: 6px;
+  margin: 0;
+  font: inherit;
+}
+/* Hack to remove Safari's extra padding. Remove if you don't care about pixel-perfection. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .input input, .input textarea, .input select { padding: 4px; }
+}

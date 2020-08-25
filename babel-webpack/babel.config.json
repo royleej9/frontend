@@ -1,0 +1,34 @@
+{
+  "inputSourceMap": true,
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "loose": true,
+        "targets": {
+          "ie": "8",
+          "chrome": "76"
+        },
+        "debug": true,
+        "useBuiltIns": "usage",
+        "corejs": {
+          "version": 3.6,
+          "proposals": true
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      //https://babeljs.io/docs/en/babel-plugin-transform-runtime
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": 3, // false: @babel/runtime, 2: @babel/runtime-corejs2, 3: @babel/runtime-corejs3
+        "helpers": true, // default: true
+        "regenerator": true,
+        "useESModules": false
+      }
+    ]
+  ]
+}
