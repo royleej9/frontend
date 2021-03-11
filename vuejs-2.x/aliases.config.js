@@ -3,24 +3,24 @@ const fs = require('fs');
 const prettier = require('prettier');
 
 const aliases = {
-  '@': 'src',
+  '@': '.',
+  '@src': 'src',
   '@assets': 'src/assets',
-  '@apis': 'src/apis',
-  '@libs': 'src/libs',
-  '@components': 'src/libs/components',
-  '@directives': 'src/libs/directives',
-  '@mixins': 'src/libs/mixins',
-  '@utils': 'src/libs/utils',
-  '@router': 'src/router',
-  '@store': 'src/store',
+  '@commons': 'src/commons',
+  '@plugins': 'src/plugins',
+  '@router': 'src/plugins/router',
+  '@store': 'src/plugins/store',
+  '@i18n': 'src/plugins/i18n',
+  '@services': 'src/services',
   '@views': 'src/views',
-  '@guide': 'src/views/guide',
+  '@etc': 'src/views/etc',
   '@login': 'src/views/login',
   '@main': 'src/views/main',
-  '@menus': 'src/views/menus',
   '@menu1': 'src/views/menus/menu1',
   '@menu2': 'src/views/menus/menu2',
-  '@menu3': 'src/views/menus/menu3',
+  '@user': 'src/views/user',
+  '@etc': 'src/views/etc',
+  '@login': 'src/views/login'
 };
 
 module.exports = {

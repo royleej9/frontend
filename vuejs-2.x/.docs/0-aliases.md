@@ -1,17 +1,33 @@
-# aliases
+# aliases.config.js - 폴더 경로 축약형 등록
 
 - 설정 파일: aliases.config.js
 - 축약어를 사용하여 import 구문에 대한 패스 경로를 줄일 수 있음
 - jsconfig.json 을 자동 생성하여 vscode에서 자동 완성 기능을 사용 가능
 
-## 사용 예
-
 ```js
-// before
+// 등록 전
+import HelloWorld from './components/HelloWorld.vue';
 import HelloWorld from '@/libs/components/HelloWorld.vue';
 
-// after
+// 등록 후
 import HelloWorld from '@components/HelloWorld.vue';
+```
+
+## 설정
+
+aliases.config.js에 축약형으로 등록할 폴더를 추가
+
+```js
+// aliases.config.js
+const aliases = {
+  '@': '.',
+  '@src': 'src',
+  '@assets': 'src/assets',
+  '@commons': 'src/commons',
+  '@plugins': 'src/plugins',
+  '@router': 'src/plugins/router',
+  ...
+};
 ```
 
 ## 명령어
@@ -22,21 +38,10 @@ import HelloWorld from '@components/HelloWorld.vue';
 ```bash
 // jsconfig.json 파일 생성
 npm run aliases
-```
 
-## 설정
+// 또는
+npm run serve
 
-```js
-// aliases.config.js
-const aliases = {
-  '@': 'src',
-  '@libs': 'src/libs',
-  '@components': 'src/libs/components',
-  '@directives': 'src/libs/directives',
-  '@mixins': 'src/libs/mixins',
-  '@utils': 'src/libs/utils',
-  '@router': 'src/router',
-  '@store': 'src/store',
-  '@views': 'src/views',
-};
+// 또는
+npm run build
 ```

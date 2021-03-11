@@ -3,8 +3,7 @@ import LoginView from '@login/LoginView.vue';
 const routesDefault = [
   {
     path: '*',
-    name: 'login',
-    component: LoginView,
+    redirect: '/',
   },
   {
     path: '/guide',
