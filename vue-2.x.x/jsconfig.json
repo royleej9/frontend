@@ -1,0 +1,139 @@
+{
+  "baseUrl": ".",
+  "include": ["src/**/*", "tests/**/*"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "esnext",
+    "module": "es2015",
+    "paths": {
+      "@/*": ["./*"],
+      "@": [
+        "./index.js",
+        "./index.json",
+        "./index.vue",
+        "./index.scss",
+        "./index.css"
+      ],
+      "@src/*": ["src/*"],
+      "@src": [
+        "src/index.js",
+        "src/index.json",
+        "src/index.vue",
+        "src/index.scss",
+        "src/index.css"
+      ],
+      "@assets/*": ["src/assets/*"],
+      "@assets": [
+        "src/assets/index.js",
+        "src/assets/index.json",
+        "src/assets/index.vue",
+        "src/assets/index.scss",
+        "src/assets/index.css"
+      ],
+      "@commons/*": ["src/commons/*"],
+      "@commons": [
+        "src/commons/index.js",
+        "src/commons/index.json",
+        "src/commons/index.vue",
+        "src/commons/index.scss",
+        "src/commons/index.css"
+      ],
+      "@plugins/*": ["src/plugins/*"],
+      "@plugins": [
+        "src/plugins/index.js",
+        "src/plugins/index.json",
+        "src/plugins/index.vue",
+        "src/plugins/index.scss",
+        "src/plugins/index.css"
+      ],
+      "@router/*": ["src/plugins/router/*"],
+      "@router": [
+        "src/plugins/router/index.js",
+        "src/plugins/router/index.json",
+        "src/plugins/router/index.vue",
+        "src/plugins/router/index.scss",
+        "src/plugins/router/index.css"
+      ],
+      "@store/*": ["src/plugins/store/*"],
+      "@store": [
+        "src/plugins/store/index.js",
+        "src/plugins/store/index.json",
+        "src/plugins/store/index.vue",
+        "src/plugins/store/index.scss",
+        "src/plugins/store/index.css"
+      ],
+      "@i18n/*": ["src/plugins/i18n/*"],
+      "@i18n": [
+        "src/plugins/i18n/index.js",
+        "src/plugins/i18n/index.json",
+        "src/plugins/i18n/index.vue",
+        "src/plugins/i18n/index.scss",
+        "src/plugins/i18n/index.css"
+      ],
+      "@services/*": ["src/services/*"],
+      "@services": [
+        "src/services/index.js",
+        "src/services/index.json",
+        "src/services/index.vue",
+        "src/services/index.scss",
+        "src/services/index.css"
+      ],
+      "@views/*": ["src/views/*"],
+      "@views": [
+        "src/views/index.js",
+        "src/views/index.json",
+        "src/views/index.vue",
+        "src/views/index.scss",
+        "src/views/index.css"
+      ],
+      "@etc/*": ["src/views/etc/*"],
+      "@etc": [
+        "src/views/etc/index.js",
+        "src/views/etc/index.json",
+        "src/views/etc/index.vue",
+        "src/views/etc/index.scss",
+        "src/views/etc/index.css"
+      ],
+      "@login/*": ["src/views/login/*"],
+      "@login": [
+        "src/views/login/index.js",
+        "src/views/login/index.json",
+        "src/views/login/index.vue",
+        "src/views/login/index.scss",
+        "src/views/login/index.css"
+      ],
+      "@main/*": ["src/views/main/*"],
+      "@main": [
+        "src/views/main/index.js",
+        "src/views/main/index.json",
+        "src/views/main/index.vue",
+        "src/views/main/index.scss",
+        "src/views/main/index.css"
+      ],
+      "@menu1/*": ["src/views/menus/menu1/*"],
+      "@menu1": [
+        "src/views/menus/menu1/index.js",
+        "src/views/menus/menu1/index.json",
+        "src/views/menus/menu1/index.vue",
+        "src/views/menus/menu1/index.scss",
+        "src/views/menus/menu1/index.css"
+      ],
+      "@menu2/*": ["src/views/menus/menu2/*"],
+      "@menu2": [
+        "src/views/menus/menu2/index.js",
+        "src/views/menus/menu2/index.json",
+        "src/views/menus/menu2/index.vue",
+        "src/views/menus/menu2/index.scss",
+        "src/views/menus/menu2/index.css"
+      ],
+      "@user/*": ["src/views/menus/user/*"],
+      "@user": [
+        "src/views/menus/user/index.js",
+        "src/views/menus/user/index.json",
+        "src/views/menus/user/index.vue",
+        "src/views/menus/user/index.scss",
+        "src/views/menus/user/index.css"
+      ]
+    }
+  }
+}

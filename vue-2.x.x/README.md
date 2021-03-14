@@ -1,5 +1,3 @@
-# Vuejs 2.x 프로젝트
-
 참고
 
 - [vue-enterprise-boilerplate]
