@@ -4,8 +4,7 @@ const routesMenu = [
     name: 'menu_menu1',
     meta: {
       title: 'menu_menu1',
-      requiredAuth: true,
-      allowedUserPrivilege: [0]
+      allowedUserPrivileges: [1]
     },
     component: () =>
       import(/* webpackChunkName: "Menu1Main" */ '@menu1/Menu1Main.vue')
@@ -15,8 +14,7 @@ const routesMenu = [
     name: 'menu_menu2',
     meta: {
       title: 'menu_menu2',
-      requiredAuth: true,
-      allowedUserPrivilege: [0]
+      allowedUserPrivileges: [0, 1]
     },
     component: () =>
       import(/* webpackChunkName: "Menu2Main" */ '@menu2/Menu2Main.vue')
@@ -30,8 +28,7 @@ const routesMenu = [
         name: 'menu_user_acccout',
         meta: {
           title: 'menu_user_acccout',
-          requiredAuth: true,
-          allowedUserPrivilege: [0]
+          allowedUserPrivileges: [0]
         },
         component: () =>
           import(
@@ -43,8 +40,7 @@ const routesMenu = [
         name: 'menu_user_info_changeHistory',
         meta: {
           title: 'menu_user_info_changeHistory',
-          requiredAuth: true,
-          allowedUserPrivilege: [0]
+          allowedUserPrivileges: [1]
         },
         component: () =>
           import(
@@ -56,8 +52,7 @@ const routesMenu = [
         name: 'menu_user_login_history',
         meta: {
           title: 'menu_user_login_history',
-          requiredAuth: true,
-          allowedUserPrivilege: [0]
+          allowedUserPrivileges: [0]
         },
         component: () =>
           import(

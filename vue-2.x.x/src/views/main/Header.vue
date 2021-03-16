@@ -22,6 +22,7 @@
 <script>
 export default {
   name: 'Header',
+  props: { menus: {} },
   data() {
     return {};
   },
