@@ -8,6 +8,11 @@ module.exports = {
     },
   },
 
+  chainWebpack: (config) => {
+    // 필요시점에 lib가 로딩
+    config.plugins.delete('prefetch');
+  },
+
   devServer: {
     proxy: {
       '/users': {
