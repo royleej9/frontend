@@ -8,11 +8,12 @@ module.exports = (env, options) => {
     entry: { app: ["./src/index.js"] },
     output: {
       filename: "[name].bundle.js",
-      path: path.resolve(__dirname, "dist"),
+      path: path.resolve(__dirname, "dist")
     },
     devServer: {
-      contentBase: "./dis",
+      contentBase: "./dis"
     },
+    // devtool: "source-map",
     devtool: "nosources-source-map",
     module: {
       rules: [
@@ -21,23 +22,23 @@ module.exports = (env, options) => {
           exclude: /(node_modules|bower_components)/,
           include: path.resolve(__dirname, "src"),
           use: {
-            loader: "babel-loader",
-          },
+            loader: "babel-loader"
+          }
         },
         {
           test: /\.css$/,
-          use: ["style-loader", "css-loader"],
-        },
-      ],
+          use: ["style-loader", "css-loader"]
+        }
+      ]
     },
 
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         template: path.join(__dirname, "/public/index.html"),
-        showErrors: true,
-      }),
-    ],
+        showErrors: true
+      })
+    ]
   };
 
   return config;

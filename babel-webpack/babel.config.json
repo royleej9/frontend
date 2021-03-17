@@ -9,7 +9,7 @@
           "ie": "8",
           "chrome": "76"
         },
-        "debug": true,
+        "debug": false,
         "useBuiltIns": "usage",
         "corejs": {
           "version": 3.6,

@@ -1,6 +1,6 @@
 // import "core-js/stable";
 // import "regenerator-runtime/runtime";
-import "./test";
+import "./sample";
 
 const test = (param) => {
   console.log(param);
