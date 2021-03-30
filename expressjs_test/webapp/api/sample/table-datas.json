@@ -1,0 +1,23 @@
+[
+    {
+        "name": "test1",
+        "calories": "cal",
+        "fat": "fat1",
+        "calcium": "calcium1",
+        "iron": "iron1"
+    },
+    {
+        "name": "test2",
+        "calories": "cal2",
+        "fat": "fat2",
+        "calcium": "calcium2",
+        "iron": "iron2"
+    },
+    {
+        "name": "test3",
+        "calories": "cal3",
+        "fat": "fat3",
+        "calcium": "calcium3",
+        "iron": "iron3"
+    }
+]
