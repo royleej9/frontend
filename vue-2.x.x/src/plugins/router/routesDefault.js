@@ -15,13 +15,6 @@ const routesDefault = [
     name: 'login',
     component: () =>
       import(/* webpackChunkName: "LoginView" */ '@login/LoginView.vue')
-  },
-  {
-    path: '/main',
-    name: 'main',
-    component: () =>
-      import(/* webpackChunkName: "Main" */ '@main/MainView.vue'),
-    children: []
   }
 ];
 

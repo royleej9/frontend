@@ -1,12 +1,18 @@
 import routesMenu from '@router/routesMenu';
 import _ from 'lodash';
 
-export function getAllowedRouteMain(userPrivilege) {
-  const routes = getAllowedRoutes(userPrivilege, routesMenu);
-  return routes;
+export function getAllowedRoutes(userPrivilege) {
+  const routes = getAllowedRoutesMenu(userPrivilege, routesMenu);
+  return {
+    path: '/main',
+    name: 'main',
+    component: () =>
+      import(/* webpackChunkName: "Main" */ '@main/MainView.vue'),
+    children: routes
+  };
 }
 
-function getAllowedRoutes(userPrivilege, routes) {
+function getAllowedRoutesMenu(userPrivilege, routes) {
   const allowedRoutes = [];
   for (const route of routes) {
     if (route['children'] === undefined) {
@@ -14,13 +20,12 @@ function getAllowedRoutes(userPrivilege, routes) {
         allowedRoutes.push(route);
       }
     } else {
-      route.children = getAllowedRoutes(userPrivilege, route.children);
+      route.children = getAllowedRoutesMenu(userPrivilege, route.children);
       if (route.children.length > 0) {
         allowedRoutes.push(route);
       }
     }
   }
-
   return allowedRoutes;
 }
 

@@ -4,7 +4,7 @@ const routesMenu = [
     name: 'menu_menu1',
     meta: {
       title: 'menu_menu1',
-      allowedUserPrivileges: [1]
+      allowedUserPrivileges: [0, 1]
     },
     component: () =>
       import(/* webpackChunkName: "Menu1Main" */ '@menu1/Menu1Main.vue')
@@ -20,6 +20,7 @@ const routesMenu = [
       import(/* webpackChunkName: "Menu2Main" */ '@menu2/Menu2Main.vue')
   },
   {
+    path: '/menu_user',
     name: 'menu_user',
     meta: { title: 'menu_user' },
     children: [
@@ -40,7 +41,7 @@ const routesMenu = [
         name: 'menu_user_info_changeHistory',
         meta: {
           title: 'menu_user_info_changeHistory',
-          allowedUserPrivileges: [1]
+          allowedUserPrivileges: [0]
         },
         component: () =>
           import(

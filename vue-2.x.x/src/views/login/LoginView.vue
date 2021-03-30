@@ -51,6 +51,7 @@
 <script>
 import menuManager from '@commons/menuManager';
 import { changeLocale } from '@i18n/i18nHelper';
+import { getAllowedRoutes } from '@router/routerHelper';
 
 export default {
   name: 'Login',
@@ -62,10 +63,20 @@ export default {
   },
   methods: {
     onClickLoginBtn() {
-      menuManager.openMenu('main');
+      // menuManager.openMenu('main');
     }
   },
   mounted() {
+    console.log('loginView');
+
+    const allowedRoutes = getAllowedRoutes(0);
+    console.log(allowedRoutes);
+    this.$router.addRoute(allowedRoutes);
+
+    menuManager.openMenu('/main');
+
+    // const menus = getAllowedRouteMain(0);
+    // console.log(menus);
     // console.log(this.$t('login'));
     // changeLocale('ko').then(() => {
     //   console.log(this.$t('login'));

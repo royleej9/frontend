@@ -9,3 +9,5 @@ const menuManager = {
 };
 
 export default menuManager;
+
+export function getAllowedMenus() {}

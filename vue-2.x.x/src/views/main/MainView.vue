@@ -23,7 +23,6 @@
 <script>
 import Header from '@main/Header.vue';
 import SideMenu from '@main/SideMenu.vue';
-import { getAllowedRouteMain } from '@router/routerHelper';
 
 export default {
   name: 'Main',
@@ -42,10 +41,7 @@ export default {
       this.$refs.sideMenu.show();
     }
   },
-  mounted() {
-    const menus = getAllowedRouteMain(0);
-    console.log(menus);
-  }
+  mounted() {}
 };
 </script>
 
