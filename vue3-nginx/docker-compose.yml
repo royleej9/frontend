@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: nginx-vue3
+    image: test/web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      # nginx 설정 파일
+      - ./build_assets/nginx/nginx.conf:/etc/nginx/nginx.conf
+      # 인증서 경로
+      - ./build_assets/nginx/ssl:/usr/share/nginx/ssl
+      # vue3 빌드 경로
+      # - ../dist:/usr/share/nginx/html
+    environment:
+      - TZ=Asia/Seoul
