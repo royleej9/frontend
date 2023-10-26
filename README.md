@@ -10,3 +10,6 @@
 ## Backbonejs_Template
 
 - 2014.05 backbonejs
+
+## vue3-nginx
+- nginx + https + vue3 + Docker

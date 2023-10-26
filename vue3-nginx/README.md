@@ -98,6 +98,7 @@ http {
 ### 3. dockerfile (nginx + vue3)
 
 - docker의 Multi-stage builds 기능을 사용
+  - https://docs.docker.com/build/building/multi-stage/
   - 한개의 Dockerfile에 여러개의 From을 사용하여 이미지를 빌드
   - build stage : vue 빌드
   - production stage : build stage에서 빌드된 vue 결과 파일을 nginx 이미지로 복사하여 이미지 생성
