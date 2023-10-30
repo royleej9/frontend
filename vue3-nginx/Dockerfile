@@ -8,13 +8,14 @@ WORKDIR /app
 # 빌드 대상 복사을 workdir로 지정된 위치로 복사
 COPY ./app .
 # 빌드
-RUN npm install & npm run build
+RUN npm install
+RUN npm run build
 
 #---------------------------------------------------------
 # production stage
 FROM nginx:stable-alpine as production-stage
 # vue3 빌드 결과 폴더 복사
-COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY --from=build-stage /app/dist /usr/share/nginx/ht
 
 # 기본 인증서 - 변경시 볼륨 마운트
 COPY /build_assets/nginx/ssl /usr/share/nginx/ssl
