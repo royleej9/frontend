@@ -1,5 +1,7 @@
 # nginx + https + vue3 + Docker
 
+- https://github.com/royleej9/javascript/tree/master/vue3-nginx
+
 ## 작업 순서
 
 - 1. 인증서 생성
@@ -122,7 +124,8 @@ WORKDIR /app
 # 빌드 대상 복사을 workdir로 지정된 위치로 복사
 COPY ./app .
 # 빌드
-RUN npm install & npm run build
+RUN npm install
+RUN npm run build
 
 #---------------------------------------------------------
 # production stage
