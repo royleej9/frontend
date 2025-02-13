@@ -24,7 +24,7 @@ const isValidPassword = (password: string): boolean => {
 };
 
 const login = async (email: string, password: string) => {
-  return fetch('loginapi', {
+  return fetch('http://localhost:3000/auth/login', {
     method: 'POST',
     body: JSON.stringify({ email: email, password: password }),
   });
@@ -36,7 +36,7 @@ export default function LoginForm() {
   const [errorEmail, setErrorEmail] = React.useState('');
   const [errorPassword, setErrorPassword] = React.useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     // form 자동 제출 방지
     event.preventDefault();
 
@@ -55,7 +55,7 @@ export default function LoginForm() {
     }
 
     if (isEmailValid && isEmailValid) {
-      login(email, password)
+      await login(email, password)
         .then()
         .catch((err) => {
           console.log(err);
@@ -88,7 +88,6 @@ export default function LoginForm() {
                 setEmail(event.target.value);
               }}
               onKeyDownCapture={(event) => {
-                console.log(event);
                 if (event.key === 'Enter') {
                   console.log('enter');
                 }
@@ -108,11 +107,9 @@ export default function LoginForm() {
               id="passwordTF"
               type="password"
               onChange={(event) => {
-                console.log(event);
                 setPassword(event.target.value);
               }}
               onKeyDownCapture={(event) => {
-                console.log(event);
                 if (event.key === 'Enter') {
                   console.log('enter');
                 }

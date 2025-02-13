@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import '@radix-ui/themes/styles.css';
 import './globals.css';
 import { Theme } from '@radix-ui/themes';
+import { BrowserAPIMock } from '@/components/BrowserAPIMock';
+
+const isEnabledMocking = process.env.NEXT_PUBLIC_API_MOCKING === 'enabled';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -17,7 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Theme>{children}</Theme>
+        <BrowserAPIMock enabledMocking={isEnabledMocking}>
+          <Theme>{children}</Theme>
+        </BrowserAPIMock>
       </body>
     </html>
   );
