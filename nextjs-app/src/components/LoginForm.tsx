@@ -1,70 +1,43 @@
 'use client';
 
-import * as React from 'react';
 import * as Form from '@radix-ui/react-form';
 
-import {
-  Box,
-  Button,
-  Card,
-  Flex,
-  Heading,
-  Link,
-  Text,
-  TextField,
-} from '@radix-ui/themes';
+import { Box, Button, Card, Flex, Heading, Link, Text } from '@radix-ui/themes';
+import { AuthService } from '@/shared/api/auth';
+import { useForm } from 'react-hook-form';
+import { CTextField } from '@/shared/ui/input';
 
-const isValidEmail = (email: string): boolean => {
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
-  return emailRegex.test(email);
-};
-
-const isValidPassword = (password: string): boolean => {
-  return password !== '';
-};
-
-const login = async (email: string, password: string) => {
-  return fetch('http://localhost:3000/auth/login', {
-    method: 'POST',
-    body: JSON.stringify({ email: email, password: password }),
-  });
-};
+interface LoginFormData {
+  email: string;
+  password: string;
+}
 
 export default function LoginForm() {
-  const [email, setEmail] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [errorEmail, setErrorEmail] = React.useState('');
-  const [errorPassword, setErrorPassword] = React.useState('');
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<LoginFormData>({
+    mode: 'onSubmit',
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    // form 자동 제출 방지
-    event.preventDefault();
+  const onSubmit = async (data: LoginFormData) => {
+    console.log(data);
+    console.log(data.email);
 
-    setErrorEmail('');
-    setErrorPassword('');
-
-    const isEmailValid = isValidEmail(email);
-    const isPasswordValid = isValidPassword(password);
-
-    if (!isEmailValid) {
-      setErrorEmail('이메일 주소가 잘 못 되었습니다.');
-    }
-
-    if (!isPasswordValid) {
-      setErrorPassword('패스워드를 입력하시기 바랍니다.');
-    }
-
-    if (isEmailValid && isEmailValid) {
-      await login(email, password)
-        .then()
-        .catch((err) => {
-          console.log(err);
-        });
-    }
+    // await AuthService.login({ email: data.email, password: data.password })
+    //   .then()
+    //   .catch((err) => {
+    //     console.log(err);
+    //   });
   };
 
   return (
-    <Form.Root onSubmit={handleSubmit} noValidate>
+    <Form.Root onSubmit={handleSubmit(onSubmit)} noValidate>
       <Flex flexShrink="0" gap="6" direction="column" width="416px">
         <Card size="4">
           <Heading as="h3" size="6" trim="start" mb="5">
@@ -73,48 +46,40 @@ export default function LoginForm() {
 
           <Box mb="5">
             <Flex mb="1">
-              <Text as="label" htmlFor="emailTF" size="2" weight="bold">
+              <Text as="label" htmlFor="email" size="2" weight="bold">
                 Email address
               </Text>
-              {errorEmail && <p style={{ color: 'red' }}>{errorEmail}</p>}
+              {errors.email && (
+                <p style={{ color: 'red' }}>{errors.email.message}</p>
+              )}
             </Flex>
-            <TextField.Root
-              placeholder="Enter your email"
-              required
-              id="emailTF"
-              type="email"
-              value={email}
-              onChange={(event) => {
-                setEmail(event.target.value);
-              }}
-              onKeyDownCapture={(event) => {
-                if (event.key === 'Enter') {
-                  console.log('enter');
-                }
+            <CTextField
+              control={control}
+              name="email"
+              placeholder="Email"
+              rules={{
+                required: { value: true, message: '반드시 입력해주세요' },
               }}
             />
           </Box>
 
           <Box mb="5" position="relative">
             <Flex align="baseline" justify="between" mb="1">
-              <Text as="label" size="2" weight="bold" htmlFor="passwordTF">
+              <Text as="label" size="2" weight="bold" htmlFor="password">
                 Password
               </Text>
-              {errorPassword && <p style={{ color: 'red' }}>{errorPassword}</p>}
+              {errors.password && (
+                <p style={{ color: 'red' }}>{errors.password.message}</p>
+              )}
             </Flex>
-            <TextField.Root
-              placeholder="Enter your password"
-              id="passwordTF"
+            <CTextField
+              control={control}
+              name="password"
+              placeholder="Password"
               type="password"
-              onChange={(event) => {
-                setPassword(event.target.value);
+              rules={{
+                required: { value: true, message: '반드시 입력해주세요' },
               }}
-              onKeyDownCapture={(event) => {
-                if (event.key === 'Enter') {
-                  console.log('enter');
-                }
-              }}
-              value={password}
             />
             <Link href="#" size="2" onClick={(e) => e.preventDefault()}>
               Forgot password?
