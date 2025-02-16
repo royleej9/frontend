@@ -6,34 +6,33 @@ import { Box, Button, Card, Flex, Heading, Link, Text } from '@radix-ui/themes';
 import { AuthService } from '@/shared/api/auth';
 import { useForm } from 'react-hook-form';
 import { CTextField } from '@/shared/ui/input';
-
-interface LoginFormData {
-  email: string;
-  password: string;
-}
+import { LoginDto } from '@/shared/api/auth/auth-type';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { LoginSchema } from '@/shared/api/auth/auth-schema';
 
 export default function LoginForm() {
   const {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<LoginFormData>({
+  } = useForm<LoginDto>({
     mode: 'onSubmit',
+    resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: '',
       password: '',
     },
   });
 
-  const onSubmit = async (data: LoginFormData) => {
-    console.log(data);
-    console.log(data.email);
+  const onSubmit = async ({ email, password }: LoginDto) => {
+    console.log(email);
+    console.log(password);
 
-    // await AuthService.login({ email: data.email, password: data.password })
-    //   .then()
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    await AuthService.login({ email, password })
+      .then()
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -53,14 +52,7 @@ export default function LoginForm() {
                 <p style={{ color: 'red' }}>{errors.email.message}</p>
               )}
             </Flex>
-            <CTextField
-              control={control}
-              name="email"
-              placeholder="Email"
-              rules={{
-                required: { value: true, message: '반드시 입력해주세요' },
-              }}
-            />
+            <CTextField control={control} name="email" placeholder="Email" />
           </Box>
 
           <Box mb="5" position="relative">
@@ -77,9 +69,6 @@ export default function LoginForm() {
               name="password"
               placeholder="Password"
               type="password"
-              rules={{
-                required: { value: true, message: '반드시 입력해주세요' },
-              }}
             />
             <Link href="#" size="2" onClick={(e) => e.preventDefault()}>
               Forgot password?
