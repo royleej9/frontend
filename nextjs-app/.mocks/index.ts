@@ -32,7 +32,9 @@ async function initMocks() {
 
     const { worker } = await import('./browser');
     // addEvents(worker);
-    worker.start();
+    worker.start({
+      onUnhandledRequest: 'bypass',
+    });
   }
 }
 
