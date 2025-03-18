@@ -20,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <BrowserAPIMock enabledMocking={isEnabledMocking}>
-          <Theme>{children}</Theme>
-        </BrowserAPIMock>
+        <Theme>
+          <BrowserAPIMock enabledMocking={isEnabledMocking}>
+            {children}
+          </BrowserAPIMock>
+        </Theme>
       </body>
     </html>
   );
