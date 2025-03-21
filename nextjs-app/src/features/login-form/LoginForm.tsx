@@ -3,13 +3,13 @@
 import * as Form from '@radix-ui/react-form';
 
 import { Box, Button, Card, Flex, Heading, Link, Text } from '@radix-ui/themes';
-import { authSchemas, AuthService, authTypes } from '@/shared/api/auth';
+import { authSchemas, AuthService, authTypes } from '@/shared/apis/auth';
 import { useForm } from 'react-hook-form';
 import { CTextField } from '@/shared/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useRouter } from 'next/navigation';
 
-export default function LoginForm() {
+export function LoginForm() {
   const {
     control,
     formState: { errors },

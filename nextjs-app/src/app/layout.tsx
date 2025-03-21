@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import '@radix-ui/themes/styles.css';
 import './globals.css';
 import { Theme } from '@radix-ui/themes';
-import { BrowserAPIMock } from '@/components/BrowserAPIMock';
+import { BrowserAPIMock } from '@/shared/mock';
 
 const isEnabledMocking = process.env.NEXT_PUBLIC_API_MOCKING === 'enabled';
 

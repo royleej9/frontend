@@ -1,4 +1,4 @@
-import { AUTH_API } from '@/shared/api/auth/auth-service';
+import { AUTH_API } from '@/shared/apis/auth/auth-service';
 import { delay, http, HttpResponse } from 'msw';
 
 interface LoginParam {
