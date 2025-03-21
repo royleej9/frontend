@@ -1,1 +1,1 @@
-export * from './retUtil';
+export * from './regUtil';
