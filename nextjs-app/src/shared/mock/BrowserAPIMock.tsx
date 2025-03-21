@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 
 /**
- *
+ * 브라우저에서 사용하는 api 요청 mocking
  * @param param0
  * @returns
  */
@@ -17,7 +17,7 @@ export function BrowserAPIMock({
   useEffect(() => {
     if (enabledMocking) {
       (async () => {
-        return await import('../../.mocks');
+        return await import('./config');
       })();
     }
   }, [enabledMocking]);

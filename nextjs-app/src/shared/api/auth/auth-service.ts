@@ -1,8 +1,12 @@
 import { http } from '@/shared/lib/http';
-import { LoginDto } from './auth-type';
+import { LoginDto } from './auth-types';
 
-export default class AuthService {
+export enum AUTH_API {
+  LOGIN = '/api/auth/login',
+}
+
+export class AuthService {
   static async login(data: LoginDto) {
-    return http.post('/auth/login', data);
+    return http.post(AUTH_API.LOGIN, data);
   }
 }
