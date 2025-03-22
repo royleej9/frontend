@@ -1,4 +1,4 @@
 import { z } from 'zod';
-import { LoginSchema } from './auth-schemas';
+import { LoginUserSchema } from './auth-schemas';
 
-export type LoginDto = z.infer<typeof LoginSchema>;
+export type LoginUserDto = z.infer<typeof LoginUserSchema>;

@@ -7,30 +7,38 @@ import { authSchemas, AuthService, authTypes } from '@/shared/apis/auth';
 import { useForm } from 'react-hook-form';
 import { CTextField } from '@/shared/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useRouter } from 'next/navigation';
 
-export function LoginForm() {
+type LoginFormProps = {
+  /** 로그인 성공 */
+  loginSuccess?: () => void;
+
+  /** 로그인 실패 */
+  loginFail?: () => void;
+};
+
+export function LoginForm({ loginSuccess, loginFail }: LoginFormProps) {
   const {
     control,
     formState: { errors },
     handleSubmit,
-  } = useForm<authTypes.LoginDto>({
+  } = useForm<authTypes.LoginUserDto>({
     mode: 'onSubmit',
-    resolver: zodResolver(authSchemas.LoginSchema),
+    resolver: zodResolver(authSchemas.LoginUserSchema),
     defaultValues: {
       email: '',
       password: '',
     },
   });
 
-  const router = useRouter();
-  const onSubmit = async ({ email, password }: authTypes.LoginDto) => {
+  const onSubmit = async ({ email, password }: authTypes.LoginUserDto) => {
     await AuthService.login({ email, password })
-      .then(() => {
-        router.push('/main');
-      })
+      .then(loginSuccess)
       .catch(() => {
-        alert('로그인 실패');
+        if (typeof loginFail == 'function') {
+          loginFail();
+        } else {
+          alert('로그인 실패');
+        }
       });
   };
 
