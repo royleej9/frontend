@@ -1,23 +1,13 @@
-import { AUTH_API } from '@/shared/apis/auth/auth-service';
+import { AuthService, authTypes } from '@/shared/apis/auth';
 import { delay, http, HttpResponse } from 'msw';
-
-interface LoginParam {
-  email: string;
-  password: string;
-}
-
-export const TEST_URL = 'http://localhost:3000';
-
-function getApiURL(path: string) {
-  return TEST_URL + path;
-}
+import { getMockingApiURL } from '../../config';
 
 const TEST_USER = 'ok@user.com';
 const TEST_USER_PW = '1234';
 /* eslint import/no-anonymous-default-export: [2, {"allowArray": true}] */
 export default [
-  http.post<never, LoginParam, never>(
-    getApiURL(AUTH_API.LOGIN),
+  http.post<never, authTypes.LoginUserDto, never>(
+    getMockingApiURL(AuthService.PATH_LOGIN),
     async ({ request }) => {
       const { email, password } = await request.json();
 
@@ -34,8 +24,8 @@ export default [
       }
     }
   ),
-  http.get('http://localhost:3000/auth/login', async () => {
-    console.log('test get : http://localhost:3000/auth/login');
-    return HttpResponse.json({ status: 200 });
-  }),
+  // http.get('http://localhost:3000/auth/login', async () => {
+  //   console.log('test get : http://localhost:3000/auth/login');
+  //   return HttpResponse.json({ status: 200 });
+  // }),
 ];

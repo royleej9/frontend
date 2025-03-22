@@ -17,7 +17,8 @@ export function BrowserAPIMock({
   useEffect(() => {
     if (enabledMocking) {
       (async () => {
-        return await import('./config');
+        const { startMock } = await import('./config');
+        startMock();
       })();
     }
   }, [enabledMocking]);

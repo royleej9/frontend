@@ -38,10 +38,18 @@ async function initMocks() {
   }
 }
 
-try {
-  initMocks();
-} catch (err) {
-  console.log(err);
+/**
+ * mocking 실행
+ */
+export function startMock() {
+  try {
+    initMocks();
+  } catch (err) {
+    console.log(err);
+  }
 }
 
-export {};
+const TEST_URL = 'http://localhost:3000';
+export function getMockingApiURL(path: string) {
+  return TEST_URL + path;
+}
