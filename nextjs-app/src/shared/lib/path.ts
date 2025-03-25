@@ -1,3 +1,5 @@
+export const PARAM_CALLBAK_URL = 'callbackUrl';
+
 export const pagePath = {
   root() {
     return '/';

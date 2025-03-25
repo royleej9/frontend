@@ -1,13 +1,17 @@
 'use client';
 
 import { LoginForm } from '@/features/login-form';
-import { pagePath } from '@/shared/lib/path';
-import { useRouter } from 'next/navigation';
+import { pagePath, PARAM_CALLBAK_URL } from '@/shared/lib/path';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchparams = useSearchParams();
+  const callbackUrl =
+    searchparams?.get(PARAM_CALLBAK_URL) || pagePath.dashboard();
+
   const loginSuccess = () => {
-    router.push(pagePath.dashboard());
+    router.replace(callbackUrl);
   };
 
   return (
