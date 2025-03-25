@@ -18,7 +18,7 @@ export function BrowserAPIMock({
     if (enabledMocking) {
       (async () => {
         const { startMock } = await import('./config');
-        startMock();
+        startMock().catch(console.log);
       })();
     }
   }, [enabledMocking]);

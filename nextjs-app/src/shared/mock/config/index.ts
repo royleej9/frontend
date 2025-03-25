@@ -41,11 +41,13 @@ async function initMocks() {
 /**
  * mocking 실행
  */
-export function startMock() {
+export async function startMock() {
   try {
-    initMocks();
+    if (process.env.NODE_ENV === 'development') {
+      await initMocks();
+    }
   } catch (err) {
-    console.log(err);
+    return err;
   }
 }
 
