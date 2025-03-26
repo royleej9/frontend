@@ -3,11 +3,26 @@
 - FSD 참고 중 > 조금씩 달라짐......;;;
   https://feature-sliced.design/kr/docs/get-started/tutorial
 
+- FSD 구조 샘플
+  https://github.com/yurisldk/realworld-react-fsd
+
+- Next-js-Boilerplate
+  https://github.com/ixartz/Next-js-Boilerplate
+
 ## 파일 이름
 
-- 전부 소문자로
-- '-' 으로 구분
-  user-box.ts
+- 파스칼 표기법
+
+  - 컴포넌트
+
+- 그외 전부 소문자로
+  - '-' 으로 단어 사이 구분
+  - ex) user-box.ts
+
+## 폴더 명
+
+- '-' 으로 단어 사이 구분
+  user-box
 
 /shared/api
 
