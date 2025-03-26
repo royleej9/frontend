@@ -7,6 +7,7 @@ import { authSchemas, AuthService, authTypes } from '@/shared/apis/auth';
 import { useForm } from 'react-hook-form';
 import { CTextField } from '@/shared/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useState } from 'react';
 
 type LoginFormProps = {
   /** 로그인 성공 */
@@ -16,10 +17,22 @@ type LoginFormProps = {
   loginFail?: () => void;
 };
 
+function ErrorMessage({ errors }: { errors?: string }) {
+  return (
+    <Box mb="10px" className={'mt-1 bg-red-50'}>
+      <Box className="rounded-md border border-red-500 p-2">
+        <Text size="2" color="red">
+          {errors}
+        </Text>
+      </Box>
+    </Box>
+  );
+}
+
 export function LoginForm({ loginSuccess, loginFail }: LoginFormProps) {
   const {
     control,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     handleSubmit,
   } = useForm<authTypes.LoginUserDto>({
     mode: 'onSubmit',
@@ -30,14 +43,16 @@ export function LoginForm({ loginSuccess, loginFail }: LoginFormProps) {
     },
   });
 
+  const [loginError, setLoginError] = useState<string | undefined>(undefined);
+
   const onSubmit = async ({ email, password }: authTypes.LoginUserDto) => {
     await AuthService.login({ email, password })
       .then(loginSuccess)
       .catch(() => {
-        if (typeof loginFail == 'function') {
+        if (loginFail) {
           loginFail();
         } else {
-          alert('로그인 실패');
+          setLoginError('로그인 실패');
         }
       });
   };
@@ -60,7 +75,12 @@ export function LoginForm({ loginSuccess, loginFail }: LoginFormProps) {
                   <p style={{ color: 'red' }}>{errors.email.message}</p>
                 )}
               </Flex>
-              <CTextField control={control} name="email" placeholder="Email" />
+              <CTextField
+                control={control}
+                name="email"
+                placeholder="Email"
+                disabled={isSubmitting}
+              />
             </Box>
 
             <Box mb="5" position="relative">
@@ -77,15 +97,20 @@ export function LoginForm({ loginSuccess, loginFail }: LoginFormProps) {
                 name="password"
                 placeholder="Password"
                 type="password"
+                disabled={isSubmitting}
               />
               <Link href="#" size="2" onClick={(e) => e.preventDefault()}>
                 Forgot password?
               </Link>
             </Box>
 
+            {loginError && <ErrorMessage errors={loginError} />}
+
             <Flex mt="6" justify="end" gap="3">
               <Button variant="outline">Create an account</Button>
-              <Button type="submit">Sign in</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                Sign in
+              </Button>
             </Flex>
           </Card>
         </Flex>
