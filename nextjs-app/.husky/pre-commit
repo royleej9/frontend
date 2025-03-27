@@ -1,0 +1,2 @@
+npx prettier --cache --ignore-path ./nextjs-app/.prettierignore --write ./nextjs-app
+git update-index --again
