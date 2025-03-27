@@ -7,4 +7,3 @@ const b = {
     b: "cc",
     c: "dd"
 }
-
