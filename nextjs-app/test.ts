@@ -18,7 +18,7 @@ const e = {
   c: 'dd',
 };
 
-const gaa = {
+const g1234 = {
   b: 'cc',
   c: 'dd',
 };
