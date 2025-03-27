@@ -8,7 +8,12 @@ const b = {
   c: 'dd',
 };
 
-const b = {
+const d = {
+  b: 'cc',
+  c: 'dd',
+};
+
+const e = {
   b: 'cc',
   c: 'dd',
 };
