@@ -21,7 +21,7 @@ const e = {
   c: "dd"
 }
 
-const f = {
+const gs = {
   b: "cc",
   c: "dd"
 }
