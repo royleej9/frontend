@@ -4,6 +4,6 @@ const a = {
 };
 
 const b = {
-        b: 'cc',
-        c: 'dd'
+  b: 'cc',
+  c: 'dd',
 };
