@@ -3,6 +3,13 @@
 npm create vite@latest react-app
 ```
 
+2. eslint 설정
+vite를 통한 프로젝트 생성시 자동 생성되는 README 파일 참고고
+``` sh
+npm install --save-dev eslint-plugin-react-x
+```
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
