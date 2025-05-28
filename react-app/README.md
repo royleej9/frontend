@@ -19,6 +19,13 @@ npm install --save-dev --save-exact prettier eslint-config-prettier
 
 ---
 
+## 참고
+
+- FSD 구조 샘플
+  https://github.com/yurisldk/realworld-react-fsd
+
+---
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
