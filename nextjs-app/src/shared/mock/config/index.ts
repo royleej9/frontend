@@ -1,5 +1,8 @@
 // https://github.com/vercel/next.js/tree/canary/examples/with-msw
 
+// import { SetupWorker } from 'msw/browser';
+// import { SetupServerApi } from 'msw/node';
+
 // function addEvents(setupMock: SetupServerApi | SetupWorker) {
 //   setupMock.events.on('request:start', ({ request }) => {
 //     console.log('start:', request.method, request.url);
@@ -23,17 +26,22 @@ async function initMocks() {
 
   if (typeof window === 'undefined') {
     console.log(`start server api mocking...`);
-
     const { server } = await import('./server');
     // addEvents(server);
+    // 동기
     server.listen();
   } else {
     console.log(`start browser api mocking...`);
-
     const { worker } = await import('./browser');
     // addEvents(worker);
-    worker.start({
-      onUnhandledRequest: 'bypass',
+    // 비동기
+    await worker.start({
+      // onUnhandledRequest: 'bypass',
+      onUnhandledRequest(req) {
+        if (req.url.endsWith('.ico')) {
+          return;
+        }
+      },
     });
   }
 }

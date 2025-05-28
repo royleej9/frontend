@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 /**
  * 브라우저에서 사용하는 api 요청 mocking
@@ -14,14 +14,21 @@ export function BrowserAPIMock({
   enabledMocking: boolean;
   children: React.ReactNode;
 }) {
+  const [mockStarted, setMockStarted] = useState(false);
+
   useEffect(() => {
     if (enabledMocking) {
       (async () => {
-        const { startMock } = await import('./config');
-        startMock().catch(console.log);
+        await import('./config')
+          .then((module) => module.startMock())
+          .then(() => setMockStarted(true));
       })();
     }
   }, [enabledMocking]);
+
+  if (enabledMocking && !mockStarted) {
+    return <div>Mock 초기화 중</div>;
+  }
 
   return <>{children}</>;
 }

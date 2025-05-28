@@ -4,6 +4,7 @@ import '@radix-ui/themes/styles.css';
 import './globals.css';
 import { Theme } from '@radix-ui/themes';
 import { BrowserAPIMock } from '@/shared/mock';
+import { QueryClientProvider } from '@/app/config/query-client-provider';
 
 const isEnabledMocking = process.env.NEXT_PUBLIC_API_MOCKING === 'enabled';
 
@@ -26,7 +27,7 @@ export default async function RootLayout({
       <body>
         <Theme>
           <BrowserAPIMock enabledMocking={isEnabledMocking}>
-            {children}
+            <QueryClientProvider>{children}</QueryClientProvider>
           </BrowserAPIMock>
         </Theme>
       </body>
