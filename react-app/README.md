@@ -33,6 +33,9 @@ npm i -D @types/node
 npm i -D @locator/babel-jsx @locator/runtime
 ```
 
+6. HMR 적용
+- https://ko.vite.dev/config/server-options#server-watch
+
 ## 참고
 
 - FSD 구조 샘플
