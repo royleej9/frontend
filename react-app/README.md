@@ -23,6 +23,16 @@ npm i -D --save-exact prettier eslint-config-prettier
 npm i -D @types/node
 ---
 
+5. locatorjs 설정-개발관련 유틸
+
+- 브라우저에서 UI 클릭하여 해당 코드 열기
+- https://www.locatorjs.com/install/react-data-id?stack=Vite
+  - 2가지 방법 중 위의 방법으로 실행됨
+
+``` sh
+npm i -D @locator/babel-jsx @locator/runtime
+```
+
 ## 참고
 
 - FSD 구조 샘플
