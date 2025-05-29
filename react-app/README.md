@@ -8,15 +8,19 @@ npm create vite@latest react-app
    vite를 통한 프로젝트 생성시 자동 생성되는 README 파일 참고고
 
 ```sh
-npm install --save-dev eslint-plugin-react-x
+npm i -D eslint-plugin-react-x
 ```
 
 3. prettier 설정
 
 ```sh
-npm install --save-dev --save-exact prettier eslint-config-prettier
+npm i -D --save-exact prettier eslint-config-prettier
 ```
 
+4. Cannot find name 'process'
+
+````sh
+npm i -D @types/node
 ---
 
 ## 참고
@@ -57,7 +61,7 @@ export default tseslint.config({
     },
   },
 });
-```
+````
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
