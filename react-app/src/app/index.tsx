@@ -1,7 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { LoginPage } from '../pages/login/login-page';
 import setupLocatorUI from '@locator/runtime';
+import { BrowserRouter } from './router/router-provider';
 
 if (process.env.NODE_ENV === 'development') {
   setupLocatorUI();
@@ -9,6 +9,6 @@ if (process.env.NODE_ENV === 'development') {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <LoginPage />
+    <BrowserRouter />
   </StrictMode>
 );

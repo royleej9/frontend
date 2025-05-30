@@ -36,6 +36,16 @@ npm i -D @locator/babel-jsx @locator/runtime
 6. HMR 적용
 - https://ko.vite.dev/config/server-options#server-watch
 
+7. react router
+- https://reactrouter.com/
+- v6 > v7 :
+  - -import { Routes } from "react-router-dom"
+  - +import { Routes } from "react-router"
+
+``` sh
+npm i react-router
+```
+
 ## 참고
 
 - FSD 구조 샘플
