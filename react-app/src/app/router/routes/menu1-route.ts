@@ -9,7 +9,7 @@ export function getMenu1Menu(): MenuObject {
     title: 'Menu1',
     children: [
       { path: '/menu1/sub-menu1', title: 'Sub menu1' },
-      { path: '/menu1/sub-menu2', title: 'Sub menu1' },
+      { path: '/menu1/sub-menu2', title: 'Sub menu2' },
     ],
   };
 }

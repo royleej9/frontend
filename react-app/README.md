@@ -46,6 +46,13 @@ npm i -D @locator/babel-jsx @locator/runtime
 npm i react-router
 ```
 
+8. vitest 추가
+
+``` sh
+npm i -D vitest @vitest/coverage-v8 jsdom
+npm i -D @testing-library/jest-dom @testing-library/react @testing-library/user-event
+```
+
 ## 참고
 
 - FSD 구조 샘플

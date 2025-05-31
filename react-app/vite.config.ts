@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
@@ -6,6 +7,14 @@ export default defineConfig({
   server: {
     watch: {
       usePolling: true,
+    },
+  },
+
+  // vitest
+  test: {
+    environment: 'jsdom',
+    coverage: {
+      provider: 'v8',
     },
   },
   plugins: [
