@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { LANG_TYPE } from '../../shared/lib/test/i18n';
+import { LANG_TYPE } from '../../shared/lib/i18n';
 import i18next from 'i18next';
 
 /**
