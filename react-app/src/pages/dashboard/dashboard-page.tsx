@@ -1,3 +1,11 @@
+import { useTranslation } from 'react-i18next';
+
 export function DashboardPage() {
-  return <div>dashboard page</div>;
+  const { t } = useTranslation('dashboard');
+  return (
+    <>
+      <div>{t('dashboard:title')}</div>
+      <div>dashboard page</div>
+    </>
+  );
 }

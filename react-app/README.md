@@ -19,9 +19,9 @@ npm i -D --save-exact prettier eslint-config-prettier
 
 4. Cannot find name 'process'
 
-````sh
+```sh
 npm i -D @types/node
----
+```
 
 5. locatorjs 설정-개발관련 유틸
 
@@ -29,28 +29,45 @@ npm i -D @types/node
 - https://www.locatorjs.com/install/react-data-id?stack=Vite
   - 2가지 방법 중 위의 방법으로 실행됨
 
-``` sh
+```sh
 npm i -D @locator/babel-jsx @locator/runtime
 ```
 
 6. HMR 적용
+
 - https://ko.vite.dev/config/server-options#server-watch
 
 7. react router
+
 - https://reactrouter.com/
 - v6 > v7 :
   - -import { Routes } from "react-router-dom"
   - +import { Routes } from "react-router"
 
-``` sh
+```sh
 npm i react-router
 ```
 
 8. vitest 추가
 
-``` sh
+```sh
 npm i -D vitest @vitest/coverage-v8 jsdom
 npm i -D @testing-library/jest-dom @testing-library/react @testing-library/user-event
+```
+
+9. i18next 추가
+
+- 최초 접속시 json 파일을 서버에서 로딩하는 경우 로딩이 완료된 후 브라우저 렌더링이 되도록 할것 > debug 옵션을 true로 설정하면 로딩 시점 확인 가능
+- await 를 사용함 > 다른 옵션은 있는지 확인 필요
+  ```ts
+  await i18next.use()....
+  ```
+- 브라우저 언어 자동 선택, 로컬 스토리지 저장 (key: lang)
+  - i18next-browser-languagedetector
+  - https://github.com/i18next/i18next-browser-languageDetector?tab=readme-ov-file
+
+```sh
+npm i react-i18next i18next i18next-http-backend i18next-browser-languagedetector
 ```
 
 ## 참고
@@ -91,7 +108,7 @@ export default tseslint.config({
     },
   },
 });
-````
+```
 
 You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
