@@ -50,6 +50,8 @@ npm i react-router
 
 8. vitest 추가
 
+- https://testing-playground.com/
+
 ```sh
 npm i -D vitest @vitest/coverage-v8 jsdom
 npm i -D @testing-library/jest-dom @testing-library/react @testing-library/user-event

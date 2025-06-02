@@ -31,7 +31,7 @@ function LangSelector() {
 
 export function LoginPage() {
   const navigate = useNavigate(); // useNavigate 훅 호출
-  const { t } = useTranslation();
+  const { t } = useTranslation('login');
   console.log('로그인 페이지!!!: ' + i18next.language);
 
   const handleClick = () => {
@@ -39,7 +39,7 @@ export function LoginPage() {
   };
   return (
     <div>
-      로그인 페이지 입니다.
+      {t('login:title')}
       <div>
         <LangSelector />
       </div>
