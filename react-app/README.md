@@ -59,11 +59,6 @@ npm i -D @testing-library/jest-dom @testing-library/react @testing-library/user-
 
 9. i18next 추가
 
-- 최초 접속시 json 파일을 서버에서 로딩하는 경우 로딩이 완료된 후 브라우저 렌더링이 되도록 할것 > debug 옵션을 true로 설정하면 로딩 시점 확인 가능
-- await 를 사용함 > 다른 옵션은 있는지 확인 필요
-  ```ts
-  await i18next.use()....
-  ```
 - 브라우저 언어 자동 선택, 로컬 스토리지 저장 (key: lang)
   - i18next-browser-languagedetector
   - https://github.com/i18next/i18next-browser-languageDetector?tab=readme-ov-file
