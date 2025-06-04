@@ -1,8 +1,11 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi, type Mock } from 'vitest';
 import { screen, waitFor } from '@testing-library/react';
 import { getRoutes } from '../../app/router/routes';
 import { getI18nMock, renderWithRoutes } from '../../shared/lib/test/test-util';
 import userEvent from '@testing-library/user-event';
+import { useNavigate } from 'react-router';
+
+const mockedUseNavigate = useNavigate as Mock;
 
 describe('login page', () => {
   const i18n = getI18nMock();
@@ -24,6 +27,32 @@ describe('login page', () => {
       // findAllByText, queryByText, getByText;
       expect(screen.getByText('로그인 페이지'));
       expect(screen.queryByText('Login Page')).not.toBeInTheDocument();
+    });
+  });
+
+  it('로그인 실패', async () => {
+    await renderWithRoutes('/', getRoutes(), i18n);
+
+    await userEvent.click(screen.getByRole('button', { name: /login/i }));
+    await waitFor(() => {
+      expect(screen.getByText('Please enter your ID or Password.'));
+    });
+  });
+
+  it('로그인 성공', async () => {
+    const navigate = vi.fn();
+    mockedUseNavigate.mockReturnValue(navigate);
+
+    await renderWithRoutes('/', getRoutes(), i18n);
+    await userEvent.type(screen.getByLabelText('User ID'), 'test1');
+    await userEvent.type(screen.getByLabelText('Password'), 'password123');
+
+    await userEvent.click(screen.getByRole('button', { name: /login/i }));
+
+    await waitFor(() => {
+      // expect(screen.getByText('Dashboard')).toBeInTheDocument();
+      // navigate에서 호출하는 url만 비교 > 렌더링 화면은 비교 하지 않음
+      expect(navigate).toHaveBeenCalledWith('/dashboard');
     });
   });
 });

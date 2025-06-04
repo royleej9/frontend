@@ -3,5 +3,13 @@
   "lang": {
     "en": "English",
     "ko": "Korean"
+  },
+  "user_id": "User ID",
+  "password": "Password",
+  "btn": {
+    "login": "Login"
+  },
+  "error": {
+    "login_fail_1": "Please enter your ID or Password."
   }
 }

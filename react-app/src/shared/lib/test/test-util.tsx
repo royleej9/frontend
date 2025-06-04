@@ -54,7 +54,25 @@ export async function renderWithRoutes(
     i18n = getI18nMock();
   }
 
-  const memoryRouter = createMemoryRouter(routes, { initialEntries: [path] });
+  // 1. 코드에서 navigate를 사용하여 페이지 이동시 화면 테스트 가능
+  // ex) useNavigate/navigate('/dashboard')
+  // return render(
+  //   <I18nextProvider i18n={i18n}>
+  //     <MemoryRouter initialEntries={[path]}>
+  //       <Routes>
+  //         <Route path="/" element={<LoginPage />} />
+  //         <Route path="/dashboard" element={<DashboardPage />} />
+  //       </Routes>
+  //     </MemoryRouter>
+  //   </I18nextProvider>
+  // );
+
+  // 2. 코드에서 navigate를 사용하여 페이지 이동 테스트가 안됨 > 설정 방법 찾지 못함
+  //    - 화면 렌더링이 아닌 useNavigate/navigate를 사용하여 호출하는 경로 값만 비교 테스트함
+  //    - test-setup.ts, login-page.test.tsx 참고
+  const memoryRouter = createMemoryRouter(routes, {
+    initialEntries: [path],
+  });
   return render(
     <I18nextProvider i18n={i18n}>
       <RouterProvider router={memoryRouter} />

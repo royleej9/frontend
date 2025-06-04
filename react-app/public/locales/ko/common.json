@@ -3,5 +3,13 @@
   "lang": {
     "en": "영어",
     "ko": "한국어"
+  },
+  "user_id": "사용자 ID",
+  "password": "비밀 번호",
+  "btn": {
+    "login": "로그인"
+  },
+  "error": {
+    "login_fail_1": "사용자 ID 또는 비밀 번호를 입력해주세요."
   }
 }
