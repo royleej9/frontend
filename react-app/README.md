@@ -67,6 +67,12 @@ npm i -D @testing-library/jest-dom @testing-library/react @testing-library/user-
 npm i react-i18next i18next i18next-http-backend i18next-browser-languagedetector
 ```
 
+10. axios
+
+```sh
+npm i -d axios
+```
+
 ## 참고
 
 - FSD 구조 샘플

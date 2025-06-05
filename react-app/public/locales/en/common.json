@@ -10,6 +10,7 @@
     "login": "Login"
   },
   "error": {
-    "login_fail_1": "Please enter your ID or Password."
+    "login_fail_1": "Please enter your ID or Password.",
+    "login_fail_2": "Login failed."
   }
 }

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { LANG_TYPE } from '../../shared/lib/i18n';
 import i18next from 'i18next';
+import AuthService from '../../shared/apis/auth/auth-service';
 
 /**
  * 언어 선택
@@ -47,8 +48,13 @@ export function LoginPage() {
       setErrorMessage('common:error.login_fail_1');
       return;
     }
-    console.log('대시보드 페이지 이동!!!!!!!!!!!!!!!!!!!');
-    navigate('/dashboard');
+
+    AuthService.login({ userId, password })
+      .then(() => navigate('/dashboard'))
+      .catch((err) => {
+        console.log(err);
+        setErrorMessage('common:error.login_fail_2');
+      });
   };
 
   const handleUserId = (e: ChangeEvent<HTMLInputElement>) => {
