@@ -73,6 +73,16 @@ npm i react-i18next i18next i18next-http-backend i18next-browser-languagedetecto
 npm i -d axios
 ```
 
+11. msw
+
+- 타입스크립트를 사용하여 mock handler 작성시 참고
+  - https://mswjs.io/docs/best-practices/typescript/
+
+```sh
+npm i -d msw
+npx msw init ./public --save
+```
+
 ## 참고
 
 - FSD 구조 샘플

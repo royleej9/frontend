@@ -4,6 +4,7 @@ import { getRoutes } from '../../app/router/routes';
 import { getI18nMock, renderWithRoutes } from '../../shared/lib/test/test-util';
 import userEvent from '@testing-library/user-event';
 import { useNavigate } from 'react-router';
+import { TEST_CONSTS } from '../../shared/lib/mock';
 
 const mockedUseNavigate = useNavigate as Mock;
 
@@ -44,8 +45,14 @@ describe('login page', () => {
     mockedUseNavigate.mockReturnValue(navigate);
 
     await renderWithRoutes('/', getRoutes(), i18n);
-    await userEvent.type(screen.getByLabelText('User ID'), 'test1');
-    await userEvent.type(screen.getByLabelText('Password'), 'password123');
+    await userEvent.type(
+      screen.getByLabelText('User ID'),
+      TEST_CONSTS.LOGIN_ID_OK
+    );
+    await userEvent.type(
+      screen.getByLabelText('Password'),
+      TEST_CONSTS.PASSWORD_OK
+    );
 
     await userEvent.click(screen.getByRole('button', { name: /login/i }));
 
@@ -53,6 +60,27 @@ describe('login page', () => {
       // expect(screen.getByText('Dashboard')).toBeInTheDocument();
       // navigate에서 호출하는 url만 비교 > 렌더링 화면은 비교 하지 않음
       expect(navigate).toHaveBeenCalledWith('/dashboard');
+    });
+  });
+
+  it('로그인 실패', async () => {
+    const navigate = vi.fn();
+    mockedUseNavigate.mockReturnValue(navigate);
+
+    await renderWithRoutes('/', getRoutes(), i18n);
+    await userEvent.type(
+      screen.getByLabelText('User ID'),
+      TEST_CONSTS.LOGIN_ID_NOK
+    );
+    await userEvent.type(
+      screen.getByLabelText('Password'),
+      TEST_CONSTS.PASSWORD_NOK
+    );
+
+    await userEvent.click(screen.getByRole('button', { name: /login/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText('Login failed.'));
     });
   });
 });
