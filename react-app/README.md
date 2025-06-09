@@ -83,6 +83,14 @@ npm i -d msw
 npx msw init ./public --save
 ```
 
+12. 빌드 결과물 코드 / 라이브러리 사용량 분석 플러그인
+
+- https://www.npmjs.com/package/rollup-plugin-visualizer
+
+```sh
+npm i -D rollup-plugin-visualizer
+```
+
 ## 참고
 
 - FSD 구조 샘플

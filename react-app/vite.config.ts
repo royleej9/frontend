@@ -1,6 +1,7 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vite';
+import { defineConfig, type PluginOption } from 'vite';
 import react from '@vitejs/plugin-react';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -24,6 +25,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    visualizer({ open: true }) as PluginOption,
     // locatorjs 사용을 위해 변경
     // https://www.locatorjs.com/install/react-data-id?stack=Vite
     react({
