@@ -8,7 +8,7 @@ npm create vite@latest react-app
    vite를 통한 프로젝트 생성시 자동 생성되는 README 파일 참고고
 
 ```sh
-npm i -D eslint-plugin-react-x
+npm i -D eslint-plugin-react-x eslint-plugin-react-dom
 ```
 
 3. prettier 설정
