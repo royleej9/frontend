@@ -11,6 +11,7 @@ import type { MenuObject } from '../../../shared/ui/main-menu/main-menu';
  * 기본 route 정보
  */
 const defaultRoutes: RouteObject[] = [
+  {Component: }
   { path: '*', Component: NotFoundPage },
   { path: '/', Component: LoginPage },
 ];
@@ -51,6 +52,5 @@ export function getLoggedInUserMenu(): MenuObject[] {
  */
 export function getRoutes(): RouteObject[] {
   // const route: RouteObject = defaultRoutes.push(getUserRoute());
-
   return [...defaultRoutes, getLoggedInUserRoute()];
 }

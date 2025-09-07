@@ -1,7 +1,7 @@
 import { delay, http, HttpResponse } from 'msw';
 import AuthService from './auth-service';
-import type { LoginUserDto } from './auth-types';
-import { TEST_CONSTS } from '../../lib/mock';
+import type { LoginUserDto, LoginUserInfo } from './auth-types';
+import { TEST } from '../../lib/mock';
 
 /* eslint import/no-anonymous-default-export: [2, {"allowArray": true}] */
 export default [
@@ -13,10 +13,7 @@ export default [
 
       await delay(500);
 
-      if (
-        userId === TEST_CONSTS.LOGIN_ID_OK &&
-        password === TEST_CONSTS.PASSWORD_OK
-      ) {
+      if (userId === TEST.LOGIN_ID_OK && password === TEST.PASSWORD_OK) {
         console.log('인증 성공');
         const sessionId = 'test-mock-123abc';
         const expirationDate = new Date();
@@ -37,8 +34,11 @@ export default [
       }
     }
   ),
-  // http.get('http://localhost:3000/auth/login', async () => {
-  //   console.log('test get : http://localhost:3000/auth/login');
-  //   return HttpResponse.json({ status: 200 });
-  // }),
+  http.get<LoginUserInfo>(AuthService.PATH_ME, async () => {
+    return HttpResponse.json({
+      userId: TEST.LOGIN_ID_OK,
+      userName: TEST.USER_NAME,
+      email: TEST.EMAIL,
+    });
+  }),
 ];

@@ -6,6 +6,8 @@ export interface LoginUserDto {
   password: string;
 }
 
-// export interface LoginResultDto {
-
-// }
+export interface LoginUserInfo {
+  userId: string;
+  userName: string;
+  email: string;
+}

@@ -4,7 +4,7 @@ import { getRoutes } from '../../app/router/routes';
 import { getI18nMock, renderWithRoutes } from '../../shared/lib/test/test-util';
 import userEvent from '@testing-library/user-event';
 import { useNavigate } from 'react-router';
-import { TEST_CONSTS } from '../../shared/lib/mock';
+import { TEST } from '../../shared/lib/mock';
 
 const mockedUseNavigate = useNavigate as Mock;
 
@@ -45,14 +45,8 @@ describe('login page', () => {
     mockedUseNavigate.mockReturnValue(navigate);
 
     await renderWithRoutes('/', getRoutes(), i18n);
-    await userEvent.type(
-      screen.getByLabelText('User ID'),
-      TEST_CONSTS.LOGIN_ID_OK
-    );
-    await userEvent.type(
-      screen.getByLabelText('Password'),
-      TEST_CONSTS.PASSWORD_OK
-    );
+    await userEvent.type(screen.getByLabelText('User ID'), TEST.LOGIN_ID_OK);
+    await userEvent.type(screen.getByLabelText('Password'), TEST.PASSWORD_OK);
 
     await userEvent.click(screen.getByRole('button', { name: /login/i }));
 
@@ -68,14 +62,8 @@ describe('login page', () => {
     mockedUseNavigate.mockReturnValue(navigate);
 
     await renderWithRoutes('/', getRoutes(), i18n);
-    await userEvent.type(
-      screen.getByLabelText('User ID'),
-      TEST_CONSTS.LOGIN_ID_NOK
-    );
-    await userEvent.type(
-      screen.getByLabelText('Password'),
-      TEST_CONSTS.PASSWORD_NOK
-    );
+    await userEvent.type(screen.getByLabelText('User ID'), TEST.LOGIN_ID_NOK);
+    await userEvent.type(screen.getByLabelText('Password'), TEST.PASSWORD_NOK);
 
     await userEvent.click(screen.getByRole('button', { name: /login/i }));
 

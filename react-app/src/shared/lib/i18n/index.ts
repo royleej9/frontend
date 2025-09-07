@@ -19,7 +19,7 @@ i18next
     debug: process.env.NODE_ENV === 'development',
     // lng: LANG_TYPE.KO, //  localStorage > htmlTag > fallbackLng  순서로 자동 체크 detection.order
     fallbackLng: LANG_TYPE.EN,
-    ns: ['common', 'login'], // 사이트 접속시 자동으로 해당 json 로딩
+    ns: ['common', 'login', 'dashboard'], // 사이트 접속시 자동으로 해당 json 로딩
     defaultNS: 'common', // 기본 namespace 지정
     react: {
       useSuspense: true, // React.Suspense와 연동하여 번역 로딩 중 로딩 화면 표시
