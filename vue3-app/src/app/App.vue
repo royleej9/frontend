@@ -1,9 +1,7 @@
 <template>
-  <q-layout>
-    <q-page-container>
-      <router-view />
-    </q-page-container>
-  </q-layout>
+  <router-view />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+console.log('App.vue');
+</script>
